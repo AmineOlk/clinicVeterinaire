@@ -73,13 +73,13 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 You will reuse this Dockerfile for each microservice, each time using specific arguments.
 Copy all the compiled jar files to this directory.
 ```
-cp ../src/spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-$VERSION.jar spring-petclinic-api-gateway-$VERSION.jar
-cp ../src/spring-petclinic-admin-server/target/spring-petclinic-admin-server-$VERSION.jar spring-petclinic-admin-server-$VERSION.jar
-cp ../src/spring-petclinic-customers-service/target/spring-petclinic-customers-service-$VERSION.jar spring-petclinic-customers-service-$VERSION.jar
-cp ../src/spring-petclinic-visits-service/target/spring-petclinic-visits-service-$VERSION.jar spring-petclinic-visits-service-$VERSION.jar
-cp ../src/spring-petclinic-vets-service/target/spring-petclinic-vets-service-$VERSION.jar spring-petclinic-vets-service-$VERSION.jar
-cp ../src/spring-petclinic-config-server/target/spring-petclinic-config-server-$VERSION.jar spring-petclinic-config-server-$VERSION.jar
-cp ../src/spring-petclinic-discovery-server/target/spring-petclinic-discovery-server-$VERSION.jar spring-petclinic-discovery-server-$VERSION.jar
+cp ../spring-petclinic-api-gateway/target/spring-petclinic-api-gateway-$VERSION.jar spring-petclinic-api-gateway-$VERSION.jar
+cp ../spring-petclinic-admin-server/target/spring-petclinic-admin-server-$VERSION.jar spring-petclinic-admin-server-$VERSION.jar
+cp ../spring-petclinic-customers-service/target/spring-petclinic-customers-service-$VERSION.jar spring-petclinic-customers-service-$VERSION.jar
+cp ../spring-petclinic-visits-service/target/spring-petclinic-visits-service-$VERSION.jar spring-petclinic-visits-service-$VERSION.jar
+cp ../spring-petclinic-vets-service/target/spring-petclinic-vets-service-$VERSION.jar spring-petclinic-vets-service-$VERSION.jar
+cp ../spring-petclinic-config-server/target/spring-petclinic-config-server-$VERSION.jar spring-petclinic-config-server-$VERSION.jar
+cp ../spring-petclinic-discovery-server/target/spring-petclinic-discovery-server-$VERSION.jar spring-petclinic-discovery-server-$VERSION.jar
 ```
 
 Run an "docker build" and "docker push" command to build the container image for the api-gateway and push it to your Azure Container Registry.
@@ -124,19 +124,14 @@ docker build -t $MYACR.azurecr.io/spring-petclinic-vets-service:$VERSION \
     --build-arg APP_PORT=8080 \
     .
 docker push $MYACR.azurecr.io/spring-petclinic-vets-service:$VERSION
-```
 
-Execute the same steps for the config-server, but use 8888 for the APP_PORT.
-```
 docker build -t $MYACR.azurecr.io/spring-petclinic-config-server:$VERSION \
     --build-arg ARTIFACT_NAME=spring-petclinic-config-server-$VERSION.jar \
     --build-arg APP_PORT=8888 \
     .
    
 docker push $MYACR.azurecr.io/spring-petclinic-config-server:$VERSION
-```
-Execute the same steps for the discovery-server, but use 8761 for the APP_PORT.
-```
+
 docker build -t $MYACR.azurecr.io/spring-petclinic-discovery-server:$VERSION \
     --build-arg ARTIFACT_NAME=spring-petclinic-discovery-server-$VERSION.jar \
     --build-arg APP_PORT=8761 \
