@@ -96,7 +96,7 @@ docker push $MYACR.azurecr.io/spring-petclinic-api-gateway:$VERSION
 
 You are indicating here that the image should be tagged as <your-registry-name>.azurecr.io/spring-petclinic-api-gateway:3.0.2. The ARTIFACT_NAME is the jar file you want to copy into the container image which is needed to run the application. Each microservice also needs a port it will be exposed on. For the api-gateway this is port 8080.
 
-Now execute the same steps for the admin-server, customers-service, visits-service and vets-service.
+Now execute the same steps for the other services.
 ```
 docker build -t $MYACR.azurecr.io/spring-petclinic-admin-server:$VERSION \
     --build-arg ARTIFACT_NAME=spring-petclinic-admin-server-$VERSION.jar \
