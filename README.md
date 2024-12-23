@@ -240,7 +240,7 @@ kubectl create ns $NAMESPACE
 
 On your local filesystem create a kubernetes directory in the root of the project and navigate to it.
 ```
-cd src
+cd ..
 mkdir kubernetes
 cd kubernetes
 ```
