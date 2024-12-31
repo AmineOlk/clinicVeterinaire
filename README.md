@@ -36,8 +36,12 @@ ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/app.jar"]
 ```
 
 From the Git Bash window, set a VERSION environment variable to this version number 3.0.2.
+and set a AKSCLUSTER,AKSCLUSTER,RESOURCE_GROUP environment variables to the chosen names you used in the portal
 ```
 VERSION=3.0.2
+AKSCLUSTER=ismagi
+MYACR=ismagi
+RESOURCE_GROUP=ismagi_group
 ```
 You will start by building all the microservice of the spring petclinic application. To accomplish this, run mvn clean package in the root directory of the application.
 ```
