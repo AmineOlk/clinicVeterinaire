@@ -6,7 +6,7 @@ This lab teaches you how to deploy the an application to an AKS cluster.
 ## Create an AKS service and Container Registry using the Azure Portal
 ```
 AKSCLUSTER=ismagi
-MYACR=myismagi1
+MYACR=ismagi
 RESOURCE_GROUP=ismagi_group
 ```
 ## Create a MySQL database
